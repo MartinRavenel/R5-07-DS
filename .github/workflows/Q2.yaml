@@ -31,7 +31,7 @@ jobs:
           cp TOTO.txt Q2_archive_TOTO.txt
           echo "🗓 Rapport de Martin RAVENEL généré le ${{ steps.vars.outputs.DATE }}" > ${{ steps.vars.outputs.RAPPORT_NAME }}
           echo "taille du fichier : "> ${{ steps.vars.outputs.RAPPORT_NAME }}
-          size TOTO.txt > ${{ steps.vars.outputs.RAPPORT_NAME }}
+          du TOTO.txt > ${{ steps.vars.outputs.RAPPORT_NAME }}
       - name: Commit and push archive + report
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
