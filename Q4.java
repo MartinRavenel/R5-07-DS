@@ -1,4 +1,4 @@
-public class Q3{
+public class Q4{
   public static void main(String[] args){
     String txt = "";
     for( int i=args[0]; i=<0 ; i -- ){
