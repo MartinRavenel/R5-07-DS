@@ -29,3 +29,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           cp TOTO.txt Q1_archive_TOTO.txt 
+      - name: Commit and push archive + report
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add ${{ steps.vars.outputs.ARCHIVE_NAME }} ${{ steps.vars.outputs.RAPPORT_NAME }}
+          git commit -m "📦 Archive et rapport générés le ${{ steps.vars.outputs.DATE }}" || echo "Nothing to commit"
+          git push https://x-access-token:${TOKEN}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
